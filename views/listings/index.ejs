@@ -1,0 +1,96 @@
+<% layout("layouts/boilerplate.ejs") %>
+
+<body>
+        <!-- <h1>All Listings</h1> -->
+        <!-- <form method="get" action="/listings/new" >
+            <button>Create New List</button>
+        </form> -->
+        
+        <div id="filters">
+          <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>room</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-mountain-city"></i></div>
+            <p>Iconic cities</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p>Mountains</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Castles</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Amazing pools</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-tractor"></i></div>
+            <p>farms</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-snowflake"></i></div>
+            <p>arctic</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-igloo"></i></div>
+            <p>doms</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-sailboat"></i></div>
+            <p>island</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-mug-saucer"></i></div>
+            <p>cafe</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-brands fa-artstation"></i></div>
+            <p>artistic place</p>
+          </div>
+          <div class="filter">
+            <div><i class="fa-solid fa-photo-film"></i></div>
+            <p>best view</p>
+          </div>
+          <div class="tax-toggle mb-1">
+            <div class="form-check-reverse form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+            </div>
+          </div>
+        </div>
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1.5">
+            <%for(let listing of allListing){%>
+              <a href="/listings/<%= listing.id %>" class="listing-links">
+                <div class="card col listing-card" >
+                  <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing_img" style="height: 20rem;">
+                  <div class="card-img-overlay"></div>
+                  <div class="card-body">
+                    <p class="card-text">
+                      <b><%= listing && listing.title %></b> <br>
+                      <% if (listing && listing.price) { %>
+                          <i class="tax-info-before">&#8377;<%= listing.price.toLocaleString("en-IN") %> / night</i>
+                          <i class="tax-info-after">&#8377;<%= (listing.price * 1.18).toLocaleString("en-IN") %> / night</i>
+                      <% } else { %>
+                          Price information not available
+                      <% } %>
+                  </p>
+                  </div>
+                </div>
+              </a>
+            <%} %>
+        </div>
+</body>
+
+

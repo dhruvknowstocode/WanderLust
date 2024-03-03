@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/listings">Explore</a>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2 navbar-search-inp" type="search" placeholder="Search destinations" style="border-radius: 20px;padding: 0.5rem 3rem 0.5rem 3rem;">
+             <button class="btn navbar-search-btn" type="submit" style="background-color: #fe424d;color: white;border-radius: 20px;padding: 0 1rem 0 1rem;"><i class="fa-solid fa-magnifying-glass" style="display: inline;margin-right:0.5rem;"></i>Search</button>
+          </form>
+        </div>
+        <div class="navbar-nav ms-auto ">
+          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <div class="nav-item dropdown dropdown-login">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <% if(currUser && currUser.username){ %>
+                    <%= currUser.username %>
+                    <% }else{ %>
+                      <i class="fa-solid fa-user"></i>
+                    <% } %>
+                </a>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                  <% if (!currUser) { %>
+                      <a class="dropdown-item" href="/signup">Sign Up</a>
+                      <a class="dropdown-item" href="/login">Log in</a>
+                  <% } %>
+                  <% if (currUser) { %>
+                      <a class="dropdown-item" href="/logout">Log out</a>
+                  <% } %>
+              </div>
+          </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,74 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+    <% if (countries.length > 0) { %>
+        <div class="card text-white bg-dark mb-3">
+            <div class="card-body">
+                <h2 class="card-title">
+                    <% if (filter === "Iconic") { %>
+                        Discover Cultures in Countries with Iconic Cities
+                    <% } else if (filter === "pools") { %>
+                        Indulge in Luxury: Countries with Breathtaking Pools
+                    <% } else if (filter === "artistic") { %>
+                        Immerse Yourself in Art: Countries with Lavish and Artistic Places
+                    <% } else if (filter === "view") { %>
+                        Panoramic Views: Explore Countries with the Best Scenic Beauty
+                    <% } else if (filter === "trending") { %>
+                        Stay Trendy: Discover Trending Countries This Month
+                    <% } else if (filter === "room") { %>
+                        Find Serenity: Countries with the Best Rooms
+                    <% } else if (filter === "Camping") { %>
+                        Connect with Nature: Explore Countries with the Best Camping Spots
+                    <% } else if (filter === "arctic") { %>
+                        Arctic Adventures: Discover Countries with the Best Arctic Ranges
+                    <% } else if (filter === "Mountains") { %>
+                        Majestic Peaks: Experience Countries with the Best Mountains
+                    <% } else if (filter === "farms") { %>
+                        Rustic Retreats: Explore Countries with the Best Farms
+                    <% } else if (filter === "Castles") { %>
+                        Timeless Elegance: Discover Countries with the Best Castles
+                    <% } else if (filter === "doms") { %>
+                        Architectural Marvels: Experience Countries with the Best Domes
+                    <% } else { %>
+                        Explore Countries with the Best <%= filter %>s
+                    <% } %>
+                </h2>
+                <ul class="list-group">
+                    <% for (let country of countries) { %>
+                        <li class="list-group-item">
+                            <span><%= country %></span>
+                            <button class="btn btn-sm btn-outline-secondary copy-button float-end" data-clipboard-text="<%= country %>" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy Country Name">Copy</button>
+
+                        </li>
+                    <% } %>
+                </ul>                
+            </div>
+        </div>
+    <% } else { %>
+        <div class="alert alert-secondary" role="alert">
+            No countries found for this filter.
+        </div>
+    <% } %>
+
+    <a href="/listings" class="btn btn-outline-primary float-end mt-1 mb-3">Back to Home Page</a>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var clipboard = new ClipboardJS('.copy-button');
+        clipboard.on('success', function (e) {
+
+            // Update the button text to "Copied"
+            e.trigger.innerText = 'Copied';
+
+            // Optionally, you can reset the text after a certain delay
+            setTimeout(function () {
+                e.trigger.innerText = 'Copy';
+            }, 1500); // Reset to "Copy" after 2 seconds (adjust as needed)
+        });
+        clipboard.on('error', function (e) {
+            console.error('Failed to copy text: ', e.action);
+        });
+    });
+</script>
+
+

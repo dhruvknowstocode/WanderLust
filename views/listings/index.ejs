@@ -7,59 +7,59 @@
         </form> -->
         
         <div id="filters">
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('trending')">
             <div><i class="fa-solid fa-fire"></i></div>
             <p>Trending</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('room')">
             <div><i class="fa-solid fa-bed"></i></div>
             <p>room</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('Iconic')">
             <div><i class="fa-solid fa-mountain-city"></i></div>
             <p>Iconic cities</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('Mountains')">
             <div><i class="fa-solid fa-mountain"></i></div>
             <p>Mountains</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('Castles')">
             <div><i class="fa-brands fa-fort-awesome"></i></div>
             <p>Castles</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('pools')">
             <div><i class="fa-solid fa-person-swimming"></i></div>
             <p>Amazing pools</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('Camping')">
             <div><i class="fa-solid fa-campground"></i></div>
             <p>Camping</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('farms')">
             <div><i class="fa-solid fa-tractor"></i></div>
             <p>farms</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('arctic')">
             <div><i class="fa-solid fa-snowflake"></i></div>
             <p>arctic</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('doms')">
             <div><i class="fa-solid fa-igloo"></i></div>
             <p>doms</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('island')">
             <div><i class="fa-solid fa-sailboat"></i></div>
             <p>island</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('cafe')">
             <div><i class="fa-solid fa-mug-saucer"></i></div>
             <p>cafe</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('artistic')">
             <div><i class="fa-brands fa-artstation"></i></div>
             <p>artistic place</p>
           </div>
-          <div class="filter">
+          <div class="filter" onclick="navigateToURL('view')">
             <div><i class="fa-solid fa-photo-film"></i></div>
             <p>best view</p>
           </div>
@@ -91,6 +91,64 @@
               </a>
             <%} %>
         </div>
+        <script>
+          function navigateToURL(filter) {
+              let baseURL = 'http://localhost:8080/listings/find/'; 
+              let url;
+              switch (filter) {
+                  case 'trending':
+                      url = 'trending';
+                      break;
+                  case 'room':
+                      url = 'room';
+                      break;
+                  case 'Iconic':
+                      url = 'Iconic';
+                      break;
+                  case 'Mountains':
+                      url = 'Mountains';
+                      break;
+                  case 'Castles':
+                      url = 'Castles';
+                      break;
+                  case 'pools':
+                      url = 'pools';
+                      break;
+                  case 'Camping':
+                      url = 'Camping';
+                      break;
+                  case 'farms':
+                      url = 'farms';
+                      break;
+                  case 'arctic':
+                      url = 'arctic';
+                      break;
+                  case 'doms':
+                      url = 'doms';
+                      break;
+                  case 'island':
+                      url = 'island';
+                      break;
+                  case 'cafe':
+                      url = 'cafe';
+                      break;
+                  case 'artistic':
+                      url = 'artistic';
+                      break;
+                  case 'view':
+                      url = 'view';
+                      break;
+                  default:
+                      url = ''; // Default URL if no match
+              }
+      
+              // Combine base URL and filter-specific URL
+              let finalURL = baseURL + url;
+      
+              // Navigate to the final URL
+              window.location.href = finalURL;
+          }
+      </script>
 </body>
 
 

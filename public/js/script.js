@@ -44,6 +44,21 @@ priceToggle.addEventListener("click", () => {
 });
 
 
+// let searchForm = document.querySelector(".d-flex");
+
+// searchForm.addEventListener("submit", async (event) => {
+//   event.preventDefault();
+//   let searchInput = document.querySelector(".navbar-search-inp");
+
+//   try {
+//     // Redirect the user to the search URL with the specified query parameter
+//     window.location.href = `/listings/filter/search?country=${searchInput.value}`;
+//   } catch (error) {
+//     console.error("Error redirecting to search results:", error);
+//   }
+// });
+
+
 
 
 

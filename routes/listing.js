@@ -20,6 +20,16 @@ router
 
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 
+// router.get("/filter/counrty",async (req,res,next)=>{
+//     try {
+//         const { country } = req.query;
+//         const filteredListings = await Listing.find({ country: { $regex: new RegExp(country, 'i') } });
+//         res.render("listings/search", { listings: filteredListings, country });
+//     } catch (err) {
+//         next(err);
+//     }
+// })
+
 router
     .route("/:id")
     .get(wrapAsync(listingController.showListing))

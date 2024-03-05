@@ -91,7 +91,7 @@ app.get("/privacy",(req,res)=>{
 
 app.get("/terms",(req,res)=>{
     res.render("terms.ejs");
-})
+});
 
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);

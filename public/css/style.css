@@ -82,6 +82,16 @@ body{
     justify-content: center;
 }
 
+.footer-links{
+    text-decoration: none;
+    color: #222222;
+    opacity: 1;
+}
+
+.footer-links:hover{
+    opacity: 0.8;
+}
+
 .f-info-socials i{
     font-size:1.4rem;
     margin-right: 0.6rem;
